@@ -8,6 +8,8 @@ jobs:
     steps: 
     - name: check the code
       uses: actions/checkout@v3
+    - name: azure login
+      uses: azure/login@v1
       with: 
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: steup terraform
