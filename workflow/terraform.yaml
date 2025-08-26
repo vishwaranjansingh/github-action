@@ -1,0 +1,24 @@
+name: terraform
+on: 
+  push:
+    branches: ["main"]
+jobs:  
+  build-terraform-job: 
+    runs-on: [self-hosted, GitHub]
+    steps: 
+    - name: check the code
+      uses: actions/checkout@v3
+      with: 
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: steup terraform
+      uses: hashicorp/setup-terraform@v3
+      with: 
+        terraform_version: latest
+    - name: terraform init
+      run: terraform init
+    - name: terraform plan
+      run: terraform plan
+    - name: terraform apply
+      run: terraform apply --auto-approve
+      
+    
