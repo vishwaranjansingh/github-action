@@ -4,7 +4,7 @@ on:
     branches: ["main"]
 jobs:  
   build-terraform-job: 
-    runs-on: [self-hosted, GitHub]
+    runs-on: [self-hosted, Windows, X64]
     steps: 
     - name: check the code
       uses: actions/checkout@v3
